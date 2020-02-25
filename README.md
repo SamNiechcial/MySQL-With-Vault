@@ -2,11 +2,11 @@
 
 A learning project to explore dynamic secrets and encryption as a service with MySQL, using the Hashicorp suite of technologies.
 
-### Project Goals:
+## Project Goals:
 
 The eventual aim is to enable minimally technical end users to automate the initiation and configuration of a MySQL database service, in the cloud, with dynamic secrets, to a best practices production standard of security and service delivery.
 
-### Tech:
+## Tech:
 
 This project currently uses open source projects from Hashicorp:
 
@@ -26,7 +26,7 @@ This project also uses a number of other cool open source software projects:
 And lastly, this project itself is open source and can be found at the public git repository:
 * [Project Git Repo](https://github.com/SamNiechcial/MySQL-With-Vault)
 
-### Current Project State:
+## Current Project State:
 
 The project is in a very early state and is currently unlikely to be of use to anyone else.
 In the 12 hours I have devoted to it so far, I have configured and run a proof-of-concept service locally;
@@ -40,17 +40,17 @@ I have not yet started work on initiating and configuring this architecture with
 
 As a result, the Python scripts provided will *not* work unless you configure thes back-end services to run locally on your own machine *first*.
 
-### Demonstrating Working Initial Proof of Concept:
+## Demonstrating Working Initial Proof of Concept:
 
 For now, I have included a video to demonstrate that the scripts I have written are working locally for me, *working.mov*. It can be found in the root directory of the project.
 
-### Next steps:
+## Next steps:
 
 1. The scripts I have created so far are essentially scratches - they need immediate refactoring for security, separation of concerns, portability etc.
 
 2. After that, I need to upload configuration files and documentation to enable users to spin up and run architecture locally to demonstrate Python scripts themselves.
 
-### Further Steps:
+## Further Steps:
 
 3. Use Hashicorp documentation to learn how to use Terraform to spin up architecture; MySql 5.7 Server and Client, Consul and Vault - this time on Ubuntu, or something else I can eventually configure to run in production on AWS.
 
