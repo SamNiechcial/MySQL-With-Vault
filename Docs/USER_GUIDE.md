@@ -358,7 +358,7 @@ consul leave
 [Consul Production Deployment Guide](https://learn.hashicorp.com/consul/datacenter-deploy/deployment-guide)
 
 
-## Install Vault, Run Locally in Production Mode:
+## 6. Install Vault, Run Locally in Production Mode:
 
 
 #### Install Vault:
@@ -390,7 +390,7 @@ Start a new terminal window, and use it to start a local Vault Server, specifyin
 
 
 ```shell
-vault server -config=*/Projects/MySQL-With-Vault//Config/Vault/vault_server_config.hcl
+vault server -config=*/Config/Vault/vault_server_config.hcl
 ```
 
 
@@ -427,10 +427,92 @@ vault login s.9jazDIV2i7yjKw5f4DdLnP8n
 ```
 
 
-Great Success! You have now initiated a Vault server in production mode, unsealed the server, and authenticated as the root user. Now it's time to configure the vault server to serve us some dynamic secrets for our MySQL database.  We are going to do this using the **database secrets engine** in Vault.
+Great Success! You have now initiated a Vault server in production mode, unsealed the server, and **authenticated** as the root user. Now it's time to configure the vault server to serve us some dynamic secrets for our MySQL database.  We are going to do this using the **database secrets engine** in Vault.
 
 
 ## Configure Vault to Serve Dynamic Secrets for MySQL
+
+
+Start the pre-installed database Vault secrets service with:
+
+
+```shell
+vault secrets enable database
+```
+
+
+Next, to configure vault with the proper connect and plugin information.
+
+
+4 MySQL plugins are available for the database secrets engine
+- mysql-database-plugin
+- mysql-aurora-database-plugin
+- mysql-rds-database-plugin
+- mysql-legacy-database-plugin
+
+
+As we are running a MySQL 5.7 database at present, we want the legacy plugin.
+Connect Vault to the local MySQL service by passing arguments on the CLI, like so:
+
+
+```shell
+vault write database/config/legacy_mysql \
+    plugin_name=mysql-legacy-database-plugin \
+    connection_url="{{username}}:{{password}}@tcp(127.0.0.1:3306)/" \
+    allowed_roles="legacy_mysql_role" \
+    username="root" \
+    password="god"
+```
+
+
+Wherein the supplied connection url is the default for MySQL running locally, the username and password are replaced with the MySQL root information from your secret note, and the allowed_roles includes only the name of the role we are about to write next.
+
+
+**NOTE: As we will be passing MySQL credentials to shell environment variables later on with EnvConsul, and the names of these variables will be determined by the role name, it is inadvisable to include any characters in the role name which are not allowable in shell environment variable names.***
+
+
+Next, we need to write a Vault role with permissions to access the MySQL database and generate new users dynamically:
+
+
+```shell
+vault write database/roles/legacy_mysql_role \
+    db_name=legacy_mysql \
+    creation_statements="CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}';GRANT SELECT ON *.* TO '{{name}}'@'%';" \
+    default_ttl="1h" \
+    max_ttl="24h"
+```
+
+
+We should now be able to generate new users, with working username and password, on the command line with Vault, using `vault read database/creds/legacy_mysql_role`
+
+
+**NOTE: The Credentials are different every time you run this command. A new user is being generated in the MySQL database every time.***
+
+
+For security reasons, we do not want our legacy mysql dynamic secrets application to have root access to Vault. Now, we need to control the **authorization** the token we generate for our application to use has, with Vault Policies.
+
+
+To configure a policy which will **only** allow the user holding the token to generate and read MySQL credentials, and nothing more, load the policy provided in the project Config folder:
+
+
+```shell
+vault policy write mysql_policy */Config/Vault/mysql_policy.hcl
+```
+
+
+**NOTE: Vault is inherently secure. The config file need only contain minimum necessary permissions for the role. All other abilities will be disabled by default.**
+
+And create a Vault token for the mysql_role using the mysql_policy:
+
+
+```shell
+vault token create -policy=mysql_policy
+```
+
+
+The "token" Value is the Vault token we will be needing for our Python Script.
+We will be using it to make calls to the Vault HTTP API.
+Save it in your secret note for now.
 
 
 ## Install EnvConsul
