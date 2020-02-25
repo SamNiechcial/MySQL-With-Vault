@@ -1,4 +1,4 @@
-# MySQL With Vault - Readme.md
+# MySQL With Vault - Read Me
 
 A learning project to explore dynamic secrets and encryption as a service with MySQL, using the Hashicorp suite of technologies.
 
@@ -6,7 +6,7 @@ A learning project to explore dynamic secrets and encryption as a service with M
 
 This project currently uses open source projects from Hashicorp:
 
-* [Consul] for Service Networking; Provide encrypted backend data storage for Vault.
+[Consul] for Service Networking; Provide encrypted backend data storage for Vault.
 * [EnvConsul] for Environment Management; Export MySQL secrets from Vault to shell subprocesses
 * [Vault] for Dynamic Secrets; Generate and configure MySQL secrets, with integrated restricted permissions and automatic expiry.
 
@@ -20,7 +20,7 @@ This project also uses a number of other cool open source software projects:
 * [Requests] for human-compliant Read/Write syntax for HTTP API requests in Python2.7; Process requests for credentials to and from the Vault API
 
 And lastly, this project itself is open source and can be found at the public git repository:
-* [Project Git Repo] 
+* [Project Git Repo]
 
 ### Project Goals:
 
@@ -81,6 +81,8 @@ Readme written with Atom and checked with Dillinger:
 * [Dillinger] - Online Markdown Editor
 
 So long and thanks for all the free software! :-)
+
+[//]:
 
   [My Git Profile]: <"https://github.com/SamNiechcial">
   [Project Git Repo]: <"https://github.com/SamNiechcial/MySQL-With-Vault">
