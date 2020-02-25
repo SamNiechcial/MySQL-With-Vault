@@ -1,10 +1,9 @@
-# MySQL With Vault - USER_GUIDE v0.1
+# MySQL With Vault - USER_GUIDE.md v0.1
 
 This user guide speaks to running the services and application locally on MacOS Catalina.
 Basic familiarity with the CLI and MacOS development tools is assumed.
 
-It is recommended that you use the secret_note_template.txt file included to record important credentials as you go.
-
+It is recommended that you use the **secret_note_template.txt** file included to record important credentials as you go.
 Once you have everything configured, it is strongly recommended that you save this secret_note in a secure location, such as with a password manager like 1password, and **destroy** the original file.
 
 
@@ -64,13 +63,18 @@ Your virtual environment should now be ready to run the project scripts.
 
 ## Install MYSQL and MYSQL client with Homebrew, Run Client Locally:
 
-# Install Homebrew:
+### Install Homebrew:
 
-If you don't already have Homebrew, why not? If you do, beware the automatic updates, they always seem to break something. Anyway, enter:
-
+If you don't already have Homebrew, why not? Anyway, enter:
 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
-# Install MySQL 5.7 and Client with Homebrew:
+If you do, beware the automatic updates, they always seem to break something. Anyway, enter:
+`brew -update`
+
+It may also be a good idea to run the doctor and fix anything important:
+`brew -doctor`
+
+### Install MySQL 5.7 and Client with Homebrew:
 
 Check the standard MySQL 5.7 distribution is available as a stable build..
 The latest version of MySQL is 8 - as a result we will need to append a tag to the default package key:
@@ -80,7 +84,7 @@ As long as the output contains the word stable, install MySQL 5.7 and client wit
 and:
 `brew install mysql-client@5.7`
 
-# Start MySQL Running Locally:
+### Start MySQL Running Locally:
 
 Verify the installed MySQL instance: `mysql -V`
 Hopefully, the output looks like this:
@@ -107,7 +111,7 @@ To make your MySQL installation a little more secure, notably by setting root cr
 
 ## Install Consul, Run Consul Agent Locally (in Development Mode):
 
-# Install Consul:
+### Install Consul:
 
 Download latest version of Consul:
 `curl --remote-name https://releases.hashicorp.com/consul/1.7.0/consul_1.7.0_darwin_amd64.zip`
@@ -122,7 +126,7 @@ Check consul is now available on path by running:
 `consul --version`
 If not available, restart your terminal window and try again.
 
-# Start Consul running locally in Development Mode:
+### Start Consul running locally in Development Mode:
 
 **Important**: Never run a Consul agent in Development mode in production. This guide is strictly for a proof-of concept and testing implementation.
 
@@ -141,7 +145,7 @@ If everything is working, Consul should stream you quite a bit of log data to ST
 
 **Important** Add the Node ID, Node Name and Client Address to your secret note. You will need them all later.
 
-# Consul - Basic Service Discovery:
+### Consul - Basic Service Discovery:
 
 There are various ways to obtain details about the running Consul service.
 
@@ -158,12 +162,12 @@ Lastly, there is also a DNS interface, by which to discover nodes via the consul
 
 This will all become much more important when we are configuring the production application. For now, it just may be handy to know if you need it. Add the output of these 3 to your secret note if you feel like it.
 
-# Consul - Correct Shutdown:
+### Consul - Correct Shutdown:
 
 **Imporant:** Forcibly killing the Consul agent process is not a good idea. Nodes should be stopped, when finished, using:
 `consul leave`
 
-# Further Reading for Consul Configuration:
+### Further Reading for Consul Configuration:
 
 [Consul Local Deployment Guide](https://learn.hashicorp.com/consul/getting-started/agent)
 
