@@ -41,8 +41,9 @@ def getFromAPI():
         resp.raise_for_status()
         print ""
         print "-----------------------------------------------" + "\n"
-        print "THE HTTP API CALL TO VAULT HAS FAILED"           + "\n"
-        print "-----------------------------------------------"
+        print "THE HTTP API CALL TO VAULT HAS FAILED"
+        print "-----------------------------------------------" + "\n"
+        print "Please ensure Vault is configured correctly"
         print "-----------------------------------------------" + "\n"
 
 
