@@ -46,7 +46,7 @@ For now, I have included a video to demonstrate that the scripts I have written 
 
 ### Next steps:
 
-1. The scripts I have included are essentially scratches - they need immediate refactoring for security, separation of concerns, portability etc.
+1. The scripts I have created so far are essentially scratches - they need immediate refactoring for security, separation of concerns, portability etc.
 
 2. After that, I need to upload configuration files and documentation to enable users to spin up and run architecture locally to demonstrate Python scripts themselves.
 
