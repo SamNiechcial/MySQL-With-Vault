@@ -25,10 +25,10 @@ To run the project locally and demonstrate app functionality, you will need:
 6. EnvConsul installed
 7. Vault installed, with agent running locally in production mode.
 8. Vault configured to provide Dynamic Secrets for MySQL Database.
+9. Vault configured to serve Dynamic Secrets via HTTP API
+10. Vault & Envconsul configured to Serve Dynamic Secrets via Subprocess.
 
- configured to work with Consul & Vault.
 
-Vault installed, agent running in production mode, back-end storage with Consul.
 ## 1. Clone Git Repository to Your Machine via CLI:
 
 
