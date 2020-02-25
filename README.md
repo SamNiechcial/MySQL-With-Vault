@@ -80,8 +80,6 @@ Readme written with Atom and checked with Dillinger:
 * [Atom](https://atom.io/) - A hackable text editor for the 21st Century
 * [Dillinger](https://dillinger.io/) - Online Markdown Editor
 
-So long and thanks for all the free software! :-)
-
 [My Git Profile]: <"https://github.com/SamNiechcial">
 [Project Git Repo]: <"https://github.com/SamNiechcial/MySQL-With-Vault">
 
