@@ -5,7 +5,7 @@ def getFromAPI():
 
     # Hard-coding credentials is NOT advisable in production applications.
     # It is my intention to serve this from a config file in future versions!
-    mysql_vault_token = # Insert Token for Authenticating for legacy_mysql_role here!
+    mysql_vault_token = # Insert Token for Authenticating for legacy-mysql-role here!
 
     # Make API request to Vault and assign response to locally-scoped variable
     resp = requests.get("http://localhost:8200" +
@@ -16,7 +16,8 @@ def getFromAPI():
     resp_dict = json.loads(resp.text)
     resp_data = resp_dict.get("data")
 
-    # Much Success! Interpolate MySQL credentials from Vault API request and serve to STDOUT:
+    # If Much Success:
+    # Interpolate MySQL credentials from Vault API request and serve to STDOUT:
     if(resp.ok):
         print ""
         print "-----------------------------------------------"
