@@ -7,20 +7,20 @@ A learning project to explore dynamic secrets and encryption as a service with M
 This project currently uses open source projects from Hashicorp:
 
 * [Consul](https://www.consul.io/) for Service Networking; Provide encrypted backend data storage for Vault.
-* [EnvConsul] for Environment Management; Export MySQL secrets from Vault to shell subprocesses
-* [Vault] for Dynamic Secrets; Generate and configure MySQL secrets, with integrated restricted permissions and automatic expiry.
+* [EnvConsul](https://github.com/hashicorp/envconsul/) for Environment Management; Export MySQL secrets from Vault to shell subprocesses
+* [Vault](https://www.vaultproject.io/) for Dynamic Secrets; Generate and configure MySQL secrets, with integrated restricted permissions and automatic expiry.
 
 It will eventually also use Terraform:
-* [Terraform] for IaaC; Spin up architecture and configure services.
+* [Terraform](https://www.terraform.io/) for IaaC; Spin up architecture and configure services.
 
 This project also uses a number of other cool open source software projects:
 
-* [HomeBrew] for MacOS package management; Install and run local MySQL service.
-* [Python] for Scripting; Run requests against services and generate user output.
-* [Requests] for human-compliant Read/Write syntax for HTTP API requests in Python2.7; Process requests for credentials to and from the Vault API
+* [HomeBrew](https://brew.sh/) for MacOS package management; Install and run local MySQL service.
+* [Python](https://www.python.org/) for Scripting; Run requests against services and generate user output.
+* [Requests](https://pypi.org/project/requests/) for human-compliant Read/Write syntax for HTTP API requests in Python2.7; Process requests for credentials to and from the Vault API
 
 And lastly, this project itself is open source and can be found at the public git repository:
-* [Project Git Repo]
+* [Project Git Repo](https://github.com/SamNiechcial/MySQL-With-Vault)
 
 ### Project Goals:
 
@@ -73,26 +73,24 @@ Behavioural testing with Cucumber (Potentially - for Product Owners etc)
 ### Readme Details:
 
 This project was written by Sam Niechcial:
-* [My Git Profile] - Find me on Github
+* [My Git Profile](https://github.com/SamNiechcial) - Find me on Github
 
 Readme written with Atom and checked with Dillinger:
 
-* [Atom] - A hackable text editor for the 21st Century
-* [Dillinger] - Online Markdown Editor
+* [Atom](https://atom.io/) - A hackable text editor for the 21st Century
+* [Dillinger](https://dillinger.io/) - Online Markdown Editor
 
 So long and thanks for all the free software! :-)
 
-[//]:
+[My Git Profile]: <"https://github.com/SamNiechcial">
+[Project Git Repo]: <"https://github.com/SamNiechcial/MySQL-With-Vault">
 
-  [My Git Profile]: <"https://github.com/SamNiechcial">
-  [Project Git Repo]: <"https://github.com/SamNiechcial/MySQL-With-Vault">
-
-  [Atom]: <"https://atom.io/">
-  [Consul]: <"https://www.consul.io/">
-  [Dillinger]: <"https://dillinger.io/">
-  [EnvConsul]: <"https://github.com/hashicorp/envconsul/">
-  [HomeBrew]: <"https://brew.sh/">
-  [Python]: <"https://www.python.org/">
-  [Requests]: <"https://pypi.org/project/requests/">
-  [Terraform]: <"https://www.terraform.io/">
-  [Vault]: <"https://www.vaultproject.io/">
+[Atom]: <"https://atom.io/">
+[Consul]: <"https://www.consul.io/">
+[Dillinger]: <"https://dillinger.io/">
+[EnvConsul]: <"https://github.com/hashicorp/envconsul/">
+[HomeBrew]: <"https://brew.sh/">
+[Python]: <"https://www.python.org/">
+[Requests]: <"https://pypi.org/project/requests/">
+[Terraform]: <"https://www.terraform.io/">
+[Vault]: <"https://www.vaultproject.io/">
