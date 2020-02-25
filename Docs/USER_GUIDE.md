@@ -111,7 +111,7 @@ Your virtual environment should now be ready to run the project scripts.
 ## 4. Install MYSQL and MYSQL client with Homebrew, Run Client Locally:
 
 
-### Install Homebrew:
+#### Install or Update Homebrew:
 
 
 If you don't already have Homebrew, why not? Anyway, enter:
@@ -137,7 +137,7 @@ brew -doctor
 ```
 
 
-### Install MySQL 5.7 and Client with Homebrew:
+#### Install MySQL 5.7 and Client with Homebrew:
 
 
 Check the standard MySQL 5.7 distribution is available as a stable build..
@@ -164,7 +164,7 @@ brew install mysql-client@5.7
 ```
 
 
-### Start MySQL Running Locally:
+#### Start MySQL Running Locally:
 
 
 Verify the installed MySQL instance:
@@ -232,7 +232,7 @@ mysql_secure_installation
 ## 5. Install Consul, Run Consul Agent Locally (in Development Mode):
 
 
-### Install Consul:
+#### Install Consul:
 
 
 Download latest version of Consul:
@@ -270,7 +270,7 @@ consul --version
 If not available, restart your terminal window and try again.
 
 
-### Start Consul running locally in Development Mode:
+#### Start Consul running locally in Development Mode:
 
 
 **IMPORTANT: Never run a Consul agent in Development mode in production. This guide is strictly for a proof-of concept and testing implementation.**
@@ -283,7 +283,7 @@ consul agent -dev -node *NAME*
 ```
 
 
-Where *NAME* indicated the name you want for your node, e.g.
+Where *NAME* indicates the name you want for your agent, e.g.
 
 
 ```shell
@@ -291,10 +291,7 @@ consul agent -dev -node 'legacy_sql_node'
 ```
 
 
-**Note: DNS queries against local consul nodes won't work if the Node name contains full stops. Consul uses the Mac machine hostname for the Node name by default.**
-
-
-As my Mac machine hostname default does contain full stops, I thought it safer to specify a node name with the node flag.
+**Note: DNS queries against local consul nodes won't work if the Node name contains full stops. Consul uses the Mac machine hostname for the Node name by default. As my Mac machine hostname default does contain full stops, I thought it safer to specify a node name with the node flag.**
 
 
 If everything is working, Consul should stream you quite a bit of log data to STDOUT.
@@ -303,7 +300,7 @@ If everything is working, Consul should stream you quite a bit of log data to ST
 **IMPORTANT: Add the Node ID, Node Name and Client Address to your secret note. You will need them all later.**
 
 
-### Consul - Basic Service Discovery:
+#### Consul - Basic Service Discovery:
 
 
 There are various ways to obtain details about the running Consul service.
@@ -338,7 +335,7 @@ dig @127.0.0.1 -p 8600 sql_node.node.consul
 This will all become much more important when we are configuring the production application. For now, it just may be handy to know if you need it.
 
 
-### Consul - Correct Shutdown:
+#### Consul - Correct Shutdown:
 
 
 **IMPORTANT: Forcibly killing the Consul agent process is not a good idea. Nodes should be stopped, when finished, using:**
@@ -349,7 +346,7 @@ consul leave
 ```
 
 
-### Further Reading for Consul Configuration:
+#### Further Reading for Consul Configuration:
 
 
 [Consul Local Deployment Guide](https://learn.hashicorp.com/consul/getting-started/agent)
@@ -361,16 +358,26 @@ consul leave
 [Consul Production Deployment Guide](https://learn.hashicorp.com/consul/datacenter-deploy/deployment-guide)
 
 
+## Install Vault, Run Locally in Production Mode:
+
+
+#### Install Vault:
+
+Download the latest version of Vault and Unzip:
+
+```shell
+curl --remote-name https://releases.hashicorp.com/vault/1.3.2/vault_1.3.2_darwin_amd64.zip
+unzip vault_1.3.2_darwin_amd64.zip
+```
+
+
+
+
+
 ## Install EnvConsul
 
 
 Contrary to what you may think, EnvConsul is not a feature of Consul, but is in fact an entirely separate binary file.
-
-
-## Install Vault, Run Locally in Production Mode:
-
-Download the latest version of Vault:
-`curl --remote-name https://releases.hashicorp.com/vault/1.3.2/vault_1.3.2_darwin_amd64.zip`
 
 
 ## Useful Documentation:
