@@ -14,7 +14,7 @@ def getFromEnv():
         print "Please ensure you call this script using the envconsul command via CLI as specified in the readme"
 
     # Interpolate MySQL credentials from Vault API via EnvConsul and serve to STDOUT:
-    
+
     else:
         print ""
         print "-----------------------------------------------"
