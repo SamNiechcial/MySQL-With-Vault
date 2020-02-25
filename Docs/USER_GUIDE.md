@@ -277,11 +277,18 @@ If not available, restart your terminal window and try again.
 
 
 Start your local consul agent and node by running:
-`consul agent -dev -node *NAME*`
+
+```shell
+consul agent -dev -node *NAME*
+```
 
 
 Where *NAME* indicated the name you want for your node, e.g.
-`consul agent -dev -node 'legacy_sql_node'`
+
+
+```shell
+consul agent -dev -node 'legacy_sql_node'
+```
 
 
 **Note: DNS queries against local consul nodes won't work if the Node name contains full stops. Consul uses the Mac machine hostname for the Node name by default.**
@@ -303,16 +310,29 @@ There are various ways to obtain details about the running Consul service.
 
 
 Nodes running on the local Consul Agent can be inspected with:
-`consul members -detailed`
+
+
+```shell
+consul members -detailed
+```
+
 This runs against the client, which is getting data via the Gossip Protocl.
 
 
 For a more strongly consistent view, query the HTTP API, which returns JSON:
-`curl localhost:8500/v1/catalog/nodes`
+
+
+```shell
+curl localhost:8500/v1/catalog/nodes
+```
 
 
 Lastly, there is also a DNS interface, by which to discover nodes via the consul server. This runs on port 8600 by default.
-`dig @127.0.0.1 -p 8600 sql_node.node.consul`
+
+
+```shell
+dig @127.0.0.1 -p 8600 sql_node.node.consul
+```
 
 
 This will all become much more important when we are configuring the production application. For now, it just may be handy to know if you need it.
@@ -322,7 +342,11 @@ This will all become much more important when we are configuring the production 
 
 
 **IMPORTANT: Forcibly killing the Consul agent process is not a good idea. Nodes should be stopped, when finished, using:**
-`consul leave`
+
+
+```shell
+consul leave
+```
 
 
 ### Further Reading for Consul Configuration:
