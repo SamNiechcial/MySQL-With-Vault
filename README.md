@@ -1,6 +1,6 @@
-# MySQL With Vault - ReadMe
+# MySQL With Vault - README.md v0.1
 
-A learning project to explore dynamic secrets and encryption as a service with MySQL, using the Hashicorp suite of technologies.
+A learning project to explore dynamic secrets and encryption as a service, using the Hashicorp suite of technologies with MySQL.
 
 ## Project Goals:
 
@@ -72,13 +72,15 @@ Behavioural testing with Cucumber (Potentially - for Product Owners etc)
 
 ## Readme Details:
 
-This project was written by Sam Niechcial:
+This project was written by:
 * [My Git Profile](https://github.com/SamNiechcial) - Find me on Github
 
 Readme written with Atom and checked with Dillinger:
 
 * [Atom](https://atom.io/) - A hackable text editor for the 21st Century
 * [Dillinger](https://dillinger.io/) - Online Markdown Editor
+
+README VERSION NUMBER 0.1
 
 [My Git Profile]: <"https://github.com/SamNiechcial">
 [Project Git Repo]: <"https://github.com/SamNiechcial/MySQL-With-Vault">
