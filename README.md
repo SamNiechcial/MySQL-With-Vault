@@ -2,6 +2,10 @@
 
 A learning project to explore dynamic secrets and encryption as a service with MySQL, using the Hashicorp suite of technologies.
 
+### Project Goals:
+
+The eventual aim is to enable minimally technical end users to automate the initiation and configuration of a MySQL database service, in the cloud, with dynamic secrets, to a best practices production standard of security and service delivery.
+
 ### Tech:
 
 This project currently uses open source projects from Hashicorp:
@@ -21,10 +25,6 @@ This project also uses a number of other cool open source software projects:
 
 And lastly, this project itself is open source and can be found at the public git repository:
 * [Project Git Repo](https://github.com/SamNiechcial/MySQL-With-Vault)
-
-### Project Goals:
-
-The eventual aim is to enable minimally technical end users to automate the initiation and configuration of a MySQL database service, in the cloud, with dynamic secrets, to a best practices production standard of security and service delivery.
 
 ### Current Project State:
 
