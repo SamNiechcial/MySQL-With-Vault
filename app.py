@@ -20,8 +20,7 @@ def getFromAPI():
     resp_dict = json.loads(resp.text)
     resp_data = resp_dict.get("data")
 
-    # If Much Success:
-    # Interpolate MySQL credentials from Vault API request and serve to STDOUT:
+    # If Great Success: Interpolate MySQL credentials from Vault API request and serve to STDOUT:
 
     if(resp.ok):
         print ""
@@ -35,8 +34,7 @@ def getFromAPI():
         print "-----------------------------------------------"
         print "-----------------------------------------------" + "\n"
 
-    # Or, if not;
-    # Error handling at it's most rudimentary:
+    # Or, if not; Error handling at it's most rudimentary:
 
     else:
         resp.raise_for_status()
@@ -47,18 +45,21 @@ def getFromAPI():
         print "Please ensure Vault is configured correctly"
         print "-----------------------------------------------" + "\n"
 
+
 def getFromEnv():
 
     # Hard-coding credentials is NOT advisable in production applications.
     # It is my intention to serve this from a config file in future versions!
 
     # Generate shell subprocess populated with MySQL credentials from Vault via EnvConsul CLI Tool:
+
     token = # Insert Token for Authenticating for envconsul role here!
     address = 'http://127.0.0.1:8200'
     vault_cred_path = 'database/creds/legacy_mysql_role'
     cmd = "VAULT_TOKEN='{}' VAULT_ADDR='{}' envconsul -upcase -secret {} env"
 
     # Extract environment variables from shell subprocess and convert to dictionary:
+
     output = subprocess.check_output(cmd.format(token, address, vault_cred_path), shell=True)
     output_by_line = output.split('\n')
 
@@ -68,10 +69,12 @@ def getFromEnv():
         env_vars[key_value[0]] = key_value[1] if len(key_value) > 1 else None
 
     # Extract MySQL username and password from Subprocess Environment Variables Dictionary:
+
     username = env_vars.get('DATABASE_CREDS_LEGACY_MYSQL_ROLE_USERNAME')
     password = env_vars.get('DATABASE_CREDS_LEGACY_MYSQL_ROLE_PASSWORD')
 
-    # Error handling at it's most rudimentary:
+    # If no success; Error handling at it's most rudimentary:
+
     if password == "None":
         print "-----------------------------------------------"
         print "VARIABLE POPULATION WITH ENVCONSUL HAS FAILED"
@@ -80,7 +83,8 @@ def getFromEnv():
         print "-----------------------------------------------"
         print "-----------------------------------------------" + "\n"
 
-    # Much Success! Print Username and Password Credentials to STDOUT for user:
+    # If Great Success! Print Username and Password Credentials to STDOUT for user:
+
     else:
         print ""
         print "-----------------------------------------------"
