@@ -22,10 +22,10 @@ To run the project locally and demonstrate app functionality, you will need:
 3. Virtual Environment created, with package requirements installed via PIP.
 4. MySQL 5.7 installed, with client running locally.
 5. Consul installed, with agent running in -dev mode.
-6. EnvConsul installed
-7. Vault installed, with agent running locally in production mode.
-8. Vault configured to provide Dynamic Secrets for MySQL Database.
-9. Vault configured to serve Dynamic Secrets via HTTP API
+6. Vault installed, with agent running locally in production mode.
+7. Vault configured to provide Dynamic Secrets for MySQL Database.
+8. Vault configured to serve Dynamic Secrets via HTTP API
+9. EnvConsul installed
 10. Vault & Envconsul configured to Serve Dynamic Secrets via Subprocess.
 
 
@@ -370,8 +370,67 @@ curl --remote-name https://releases.hashicorp.com/vault/1.3.2/vault_1.3.2_darwin
 unzip vault_1.3.2_darwin_amd64.zip
 ```
 
+Add vault to path:
 
 
+```shell
+mv vault /usr/local/bin/
+```
+
+
+Install Vault Command Line Completion:
+
+
+```shell
+vault -autocomplete-install
+```
+
+
+Start a new terminal window, and use it to start a local Vault Server, specifying the project configuration file with the config flag:
+
+
+```shell
+vault server -config=*/Projects/MySQL-With-Vault//Config/Vault/vault_server_config.hcl
+```
+
+
+Where the * indicates your specific path to your Projects directory. This terminal window is now running your Vault server. Open a new one.
+
+
+#### Initialise and Unseal the Vault Server:
+
+
+Initialise the vault:
+
+
+```shell
+vault operator init
+```
+
+
+This will provide you with a set of 5 unseal keys and an initial root token, and a lot of useful information about vault keys. Save all the keys provided in your Secret Note.
+
+
+Now, the Vault server is running, and has access to the backend storage in Consul, but is unable to decrypt that backend storage.  Next, we need to unseal the vault, using the 5 unseal keys provided:
+
+
+```shell
+vault operator unseal
+```
+
+
+This will ask you for an unseal key from the list of 5 Vault provided. Enter one. Repeat this process twice more. That should be your Vault Server unsealed. Now, all that remains is to log in. Pass the root token provided by the `vault login` command, for example (Not real credentials):
+
+
+```shell
+vault login s.9jazDIV2i7yjKw5f4DdLnP8n
+```
+
+
+Great Success! You have now initiated a Vault server in production mode, unsealed the server, and authenticated as the root user. Now it's time to configure the vault server to serve us some dynamic secrets for our MySQL database.  We are going to do this using the **database secrets engine** in Vault.
+
+
+## Configure Vault to Serve Dynamic Secrets for MySQL
 
 
 ## Install EnvConsul
