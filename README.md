@@ -1,4 +1,4 @@
-# MySQL With Vault - Read Me
+# MySQL With Vault - ReadMe
 
 A learning project to explore dynamic secrets and encryption as a service with MySQL, using the Hashicorp suite of technologies.
 
@@ -15,7 +15,7 @@ This project currently uses open source projects from Hashicorp:
 * [Vault](https://www.vaultproject.io/) for Dynamic Secrets; Generate and configure MySQL secrets, with integrated restricted permissions and automatic expiry.
 
 It will eventually also use Terraform:
-* [Terraform](https://www.terraform.io/) for IaaC; Spin up architecture and configure services.
+* [Terraform](https://www.terraform.io/) for IaaS; Spin up architecture and configure services.
 
 This project also uses a number of other cool open source software projects:
 
