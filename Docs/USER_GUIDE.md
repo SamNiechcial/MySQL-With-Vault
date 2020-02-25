@@ -17,21 +17,27 @@ Once you have everything configured, it is strongly recommended that you save th
 To run the project locally and demonstrate app functionality, you will need:
 
 
-- This Git Repo, cloned to your machine with relevant configuration files.
-- Python 2.7 installed - the standard-issue MacOS bin will do fine.
-- Virtual Environment created, with package requirements installed via PIP.
-- MySQL 5.7 installed, with client running locally.
-- Consul installed, with agent running in -dev mode.
-- Vault installed, agent running in production mode, back-end storage with Consul.
-- EnvConsul installed, configured to work with Consul & Vault.
+1. This Git Repo, cloned to your machine with relevant configuration files.
+2. Python 2.7 installed - the standard-issue MacOS bin will do fine.
+3. Virtual Environment created, with package requirements installed via PIP.
+4. MySQL 5.7 installed, with client running locally.
+5. Consul installed, with agent running in -dev mode.
+6. EnvConsul installed
+7. Vault installed, with agent running locally in production mode.
+8. Vault configured to provide Dynamic Secrets for MySQL Database.
+
+ configured to work with Consul & Vault.
+
+Vault installed, agent running in production mode, back-end storage with Consul.
+## 1. Clone Git Repository to Your Machine via CLI:
 
 
-## Clone Git Repository to Your Machine via CLI:
+To download from GitHub with the CLI, navigate to your projects directory and run:
 
 
-To download from GitHub with the CLI, navigate to your projects directory and run: ...
-`git checkout https://github.com/SamNiechcial/MySQL-With-Vault.git`
-
+```shell
+git checkout https://github.com/SamNiechcial/MySQL-With-Vault.git`
+```
 
 If your Git isn't working from the CLI, beware the stealth Xcode update - it gets me every time.
 
@@ -40,7 +46,7 @@ Run this in your shell to popup the update the command line tools:
 `xcode-select --install`
 
 
-## Check Default Python 2.7 Installation:
+## 2. Check Default Python 2.7 Installation:
 
 
 Check which version of Python you are running with:
@@ -52,7 +58,7 @@ If you get:
 back, which you should do, assuming you aren't already running a different virtual environment, no further action should be required.
 
 
-## Create Virtual Environment with Package Requirements Installed via PIP:
+## 3. Create Virtual Environment with Package Requirements Installed via PIP:
 
 
 Navigate to root directory of the newly-cloned project, and create a Python 2.7 virtual environment for the project with:
@@ -74,7 +80,7 @@ Finally, install the package requirements with PIP:
 Your virtual environment should now be ready to run the project scripts.
 
 
-## Install MYSQL and MYSQL client with Homebrew, Run Client Locally:
+## 4. Install MYSQL and MYSQL client with Homebrew, Run Client Locally:
 
 
 ### Install Homebrew:
@@ -145,7 +151,7 @@ To make your MySQL installation a little more secure, notably by setting root cr
 **IMPORTANT: Copy the secret_note_template from the project directory into a secure location, for example a secret note in 1Password. Add the MySQL Root Credentials to the secret note. Ensure this note is properly saved before continuing.**
 
 
-## Install Consul, Run Consul Agent Locally (in Development Mode):
+## 5. Install Consul, Run Consul Agent Locally (in Development Mode):
 
 
 ### Install Consul:
