@@ -26,13 +26,13 @@ def getFromAPI():
         print ""
         print "-----------------------------------------------"
         print "HTTP API CALL MADE SUCCESSFULLY TO VAULT"
-        print "-----------------------------------------------\n"
+        print "-----------------------------------------------" + "\n"
         print "Your credentials are:\n"
         print "Username = " + resp_data.get("username")
-        print "Password = " + resp_data.get("password") + "\n"
+        print "Password = " + resp_data.get("password")         + "\n"
         print "These credentials will expire after 1hr"
         print "-----------------------------------------------"
-        print "-----------------------------------------------\n"
+        print "-----------------------------------------------" + "\n"
 
     # Or, if not;
     # Error handling at it's most rudimentary:
@@ -40,10 +40,10 @@ def getFromAPI():
     else:
         resp.raise_for_status()
         print ""
-        print "----------------------------------------\n"
-        print "THE HTTP API CALL TO VAULT HAS FAILED\n"
-        print "----------------------------------------"
-        print "----------------------------------------"
+        print "-----------------------------------------------" + "\n"
+        print "THE HTTP API CALL TO VAULT HAS FAILED"           + "\n"
+        print "-----------------------------------------------"
+        print "-----------------------------------------------" + "\n"
 
 
 getFromAPI()
