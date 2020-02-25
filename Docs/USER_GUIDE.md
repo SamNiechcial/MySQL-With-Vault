@@ -137,14 +137,13 @@ Start your local consul agent and node by running:
 Where *NAME* indicated the name you want for your node, e.g.
 `consul agent -dev -node 'legacy_sql_node'`
 
-**Note**: Consul uses the Mac machine hostname for the Node name by default.
-**Note**: DNS queries against local consul nodes won't work if the Node name contains full stops.
+**Note**: Consul uses the Mac machine hostname for the Node name by default. DNS queries against local consul nodes won't work if the Node name contains full stops.
 
 As my Mac machine hostname default does contain full stops, I thought it safer to specify a node name with the node flag.
 
 If everything is working, Consul should stream you quite a bit of log data to STDOUT.
 
-**Important** Add the Node ID, Node Name and Client Address to your secret note. You will need them all later.
+**IMPORTANT** Add the Node ID, Node Name and Client Address to your secret note. You will need them all later.
 
 ### Consul - Basic Service Discovery:
 
@@ -165,7 +164,7 @@ This will all become much more important when we are configuring the production 
 
 ### Consul - Correct Shutdown:
 
-**Imporant:** Forcibly killing the Consul agent process is not a good idea. Nodes should be stopped, when finished, using:
+**IMPORTANT** Forcibly killing the Consul agent process is not a good idea. Nodes should be stopped, when finished, using:
 `consul leave`
 
 ### Further Reading for Consul Configuration:
