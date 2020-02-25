@@ -1,6 +1,8 @@
 # MySQL With Vault - USER_GUIDE.md v0.1
 
 This user guide speaks to running the services and application locally on MacOS Catalina.
+
+
 Basic familiarity with the CLI and MacOS development tools is assumed.
 
 
@@ -27,7 +29,7 @@ To run the project locally and demonstrate app functionality, you will need:
 ## Clone Git Repository to Your Machine via CLI:
 
 
-To download from GitHub with the CLI, navigate to your projects directory and run:
+To download from GitHub with the CLI, navigate to your projects directory and run: ...
 `git checkout https://github.com/SamNiechcial/MySQL-With-Vault.git`
 
 
