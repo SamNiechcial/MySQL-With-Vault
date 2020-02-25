@@ -8,7 +8,7 @@ def getFromAPI():
 
     mysql_vault_token = # Insert Token for Authenticating for legacy-mysql-role here!
 
-    # Make API request to Vault and assign response to locally-scoped variable
+    # Make API request to Vault and assign response to locally-scoped variable:
 
     resp = requests.get("http://localhost:8200" +
                         "/v1/database/creds/legacy-mysql-role",
