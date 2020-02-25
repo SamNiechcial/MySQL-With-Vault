@@ -80,8 +80,9 @@ Check the standard MySQL 5.7 distribution is available as a stable build..
 The latest version of MySQL is 8 - as a result we will need to append a tag to the default package key:
 `brew info mysql@5.7`
 
-As long as the output contains the word stable, install MySQL 5.7 and client with: `brew install mysql@5.7`
-and:
+As long as the output contains the word stable, install MySQL 5.7 with:
+`brew install mysql@5.7`
+and client with:
 `brew install mysql-client@5.7`
 
 ### Start MySQL Running Locally:
@@ -104,9 +105,9 @@ Check if the MySQL service has been loaded:
 To make your MySQL installation a little more secure, notably by setting root credentials immediately:
 `mysql_secure_installation`
 
-**Important**: Make sure to select a strong password!
+**IMPORTANT**: Make sure to select a strong password!
 
-**Important**: Copy the secret_note_template from the project directory into a secure location, for example a secret note in 1Password. Add the MySQL Root Credentials to the secret note. Ensure this note is properly saved before continuing.
+**IMPORTANT**: Copy the secret_note_template from the project directory into a secure location, for example a secret note in 1Password. Add the MySQL Root Credentials to the secret note. Ensure this note is properly saved before continuing.
 
 
 ## Install Consul, Run Consul Agent Locally (in Development Mode):
@@ -128,7 +129,7 @@ If not available, restart your terminal window and try again.
 
 ### Start Consul running locally in Development Mode:
 
-**Important**: Never run a Consul agent in Development mode in production. This guide is strictly for a proof-of concept and testing implementation.
+**IMPORTANT**: Never run a Consul agent in Development mode in production. This guide is strictly for a proof-of concept and testing implementation.
 
 Start your local consul agent and node by running:
 `consul agent -dev -node *NAME*`
