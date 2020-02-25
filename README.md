@@ -6,7 +6,7 @@ A learning project to explore dynamic secrets and encryption as a service with M
 
 This project currently uses open source projects from Hashicorp:
 
-[Consul] for Service Networking; Provide encrypted backend data storage for Vault.
+* [Consul] for Service Networking; Provide encrypted backend data storage for Vault.
 * [EnvConsul] for Environment Management; Export MySQL secrets from Vault to shell subprocesses
 * [Vault] for Dynamic Secrets; Generate and configure MySQL secrets, with integrated restricted permissions and automatic expiry.
 
@@ -90,7 +90,7 @@ So long and thanks for all the free software! :-)
   [Atom]: <"https://atom.io/">
   [Consul]: <"https://www.consul.io/">
   [Dillinger]: <"https://dillinger.io/">
-  [EnvConsul]: <"https://github.com/hashicorp/envconsul">
+  [EnvConsul]: <"https://github.com/hashicorp/envconsul/">
   [HomeBrew]: <"https://brew.sh/">
   [Python]: <"https://www.python.org/">
   [Requests]: <"https://pypi.org/project/requests/">
