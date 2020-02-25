@@ -36,25 +36,37 @@ To download from GitHub with the CLI, navigate to your projects directory and ru
 
 
 ```shell
-git checkout https://github.com/SamNiechcial/MySQL-With-Vault.git`
+git checkout https://github.com/SamNiechcial/MySQL-With-Vault.git
 ```
 
 If your Git isn't working from the CLI, beware the stealth Xcode update - it gets me every time.
 
 
 Run this in your shell to popup the update the command line tools:
-`xcode-select --install`
 
+
+```shell
+xcode-select --install
+```
 
 ## 2. Check Default Python 2.7 Installation:
 
 
 Check which version of Python you are running with:
-`which python`
+
+
+```shell
+which python
+```
 
 
 If you get:
-`/usr/bin/python`
+
+
+```Shell
+/usr/bin/python
+```
+
 back, which you should do, assuming you aren't already running a different virtual environment, no further action should be required.
 
 
@@ -62,19 +74,35 @@ back, which you should do, assuming you aren't already running a different virtu
 
 
 Navigate to root directory of the newly-cloned project, and create a Python 2.7 virtual environment for the project with:
-`python -m virtualenv *NAME*`
+
+
+```shell
+python -m virtualenv *NAME*
+```
 
 
 Where *NAME* denotes whatever you want to call the virtual environment, e.g.
-`python -m virtualenv sql_env`
+
+
+```shell
+python -m virtualenv sql_env
+```
 
 
 Remaining in the project root directory, activate the virtual environment using:
-`source sql_env/bin/activate`
+
+
+```shell
+source sql_env/bin/activate
+```
 
 
 Finally, install the package requirements with PIP:
-`pip install -r requirements.txt`
+
+
+```shell
+pip install -r requirements.txt
+```
 
 
 Your virtual environment should now be ready to run the project scripts.
@@ -87,15 +115,26 @@ Your virtual environment should now be ready to run the project scripts.
 
 
 If you don't already have Homebrew, why not? Anyway, enter:
-`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+
+
+```shell
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 
 
 If you do, beware the automatic updates, they always seem to break something. Anyway, enter:
-`brew -update`
+
+```shell
+brew -update
+```
 
 
 It may also be a good idea to run the doctor and fix anything important:
-`brew -doctor`
+
+
+```shell
+brew -doctor
+```
 
 
 ### Install MySQL 5.7 and Client with Homebrew:
@@ -103,46 +142,85 @@ It may also be a good idea to run the doctor and fix anything important:
 
 Check the standard MySQL 5.7 distribution is available as a stable build..
 The latest version of MySQL is 8 - as a result we will need to append a tag to the default package key:
-`brew info mysql@5.7`
 
+
+```shell
+brew info mysql@5.7
+````
 
 As long as the output contains the word stable, install MySQL 5.7 with:
-`brew install mysql@5.7`
+
+
+```shell
+brew install mysql@5.7
+```
 
 
 and client with:
-`brew install mysql-client@5.7`
+
+
+```shell
+brew install mysql-client@5.7
+```
 
 
 ### Start MySQL Running Locally:
 
 
 Verify the installed MySQL instance:
-`mysql -V`
+
+
+```shell
+mysql -V
+```
 
 
 Hopefully, the output looks like this:
-`Ver 14.14 Distrib 5.7.22, for osx10.13 (x86_64)`
+
+
+```shell
+Ver 14.14 Distrib 5.7.22, for osx10.13 (x86_64)
+```
 
 
 Force link version 5.7:
-`brew link mysql@5.7 --force`
+
+
+```shell
+brew link mysql@5.7 --force
+```
 
 
 Load and start the MySQL service:
-`brew services start mysql@5.7.`
+
+
+```shell
+brew services start mysql@5.7
+```
 
 
 Hopefully, the output looks like this:
-`Successfully started mysql (label: homebrew.mxcl.mysql)`
+
+
+```shell
+Successfully started mysql (label: homebrew.mxcl.mysql)
+```
 
 
 Check if the MySQL service has been loaded:
-`brew services list`
+
+
+```shell
+brew services list
+```
 
 
 To make your MySQL installation a little more secure, notably by setting root credentials immediately:
-`mysql_secure_installation`
+
+
+```shell
+mysql_secure_installation
+```
 
 
 **IMPORTANT: Make sure to select a strong password!**
@@ -158,19 +236,37 @@ To make your MySQL installation a little more secure, notably by setting root cr
 
 
 Download latest version of Consul:
-`curl --remote-name https://releases.hashicorp.com/consul/1.7.0/consul_1.7.0_darwin_amd64.zip`
+
+
+```shell
+curl --remote-name https://releases.hashicorp.com/consul/1.7.0/consul_1.7.0_darwin_amd64.zip
+```
 
 
 Unzip the supplied archive:
-`unzip consul_1.7.0_darwin_amd64.zip`
+
+
+```shell
+unzip consul_1.7.0_darwin_amd64.zip
+```
 
 
 Add supplied binary to path, for example by moving to /usr/local/bin:
-`mv consul /usr/local/bin/`
+
+
+```shell
+mv consul /usr/local/bin/
+```
 
 
 Check consul is now available on path by running:
-`consul --version`
+
+
+```shell
+consul --version
+```
+
+
 If not available, restart your terminal window and try again.
 
 
