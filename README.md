@@ -42,7 +42,7 @@ As a result, the Python scripts provided will *not* work unless you configure th
 
 ### Demonstrating Working Initial Proof of Concept:
 
-For now, I have included a video to demonstrate that the scripts I have written are working locally for me, *working.mp4*. It can be found in the root directory of the project.
+For now, I have included a video to demonstrate that the scripts I have written are working locally for me, *working.mov*. It can be found in the root directory of the project.
 
 ### Next steps:
 
