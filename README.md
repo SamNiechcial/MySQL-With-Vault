@@ -2,8 +2,8 @@
 A learning project to explore Dynamic Secrets and Encryption as a Service, using the Hashicorp suite of technologies and MySQL.
 
 ## Requirements: MVP
-The initial aim is to explore a couple of options for injecting Dynamic Secrets, in order to learn which I prefer, while also demonstrating a minimum viable product.
-In order to achieve this, I will need to be able to:
+The initial aim was to explore a couple of options for injecting Dynamic Secrets, in order to learn which I prefer, while also demonstrating a minimum viable product.
+In order to achieve this, I needed to be able to:
 
 1. Set up Vault (in non-dev mode), using a config.hcl that I would have created beforehand. Use Consul as a storage backend.
 2. Initialise the Vault and authenticate as root.
@@ -14,9 +14,9 @@ In order to achieve this, I will need to be able to:
 7. Use EnvConsul to inject secrets into the script and read from getFromEnv()
 
 
-The current aim is to configure and run all services locally as a learning exercise.
+To meet this aim in a reasonable timeframe, I configured and ran all services locally, as a learning exercise.
 ## Progress: MVP Demonstrated
-In the 16 hours I have devoted to the project so far, I have configured and run a Minimum Viable Product service:
+In the 16 hours I have devoted to the project so far, I have configured, run and demonstrated a Minimum Viable Product service:
 
 
 * [MySQL 5.7](https://formulae.brew.sh/formula/mysql@5.7) server, locally, with HomeBrew - Providing the database to use with the Dynamic Secrets.
@@ -46,7 +46,8 @@ Learn Terraform, then use it to automate the configuration of the back-end servi
 2. Write project Terraform configuration to spin up architecture; MySql 5.7 Server and client, Consul and Vault - Again, on Ubuntu.
 
 
-## Requirements: Long Term: Develop a Project that's Actually Useful
+
+##Requirements: Long Term: Develop a Project that's Actually Useful##
 The eventual aim is to enable minimally technical end users to automate the initiation and configuration of a MySQL database service, in the cloud, with dynamic secrets, to a best practices production standard of security and service delivery. This may take some time.
 ## Further Steps: Refactoring and Testing - Unit, Integration and Battle
 3. The scripts I have created so far are essentially scratches - they refactoring for security, separation of concerns etc.
