@@ -1,4 +1,4 @@
-# MySQL With Vault - USER_GUIDE.md v0.1
+# MySQL With Vault - User Guide
 This user guide speaks to running the services and application locally on MacOS Catalina.
 
 
