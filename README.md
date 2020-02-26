@@ -35,7 +35,7 @@ I have not yet started work on initiating and configuring this architecture with
 As a result, the Python scripts provided will not currently work unless you configure these back-end services to run locally on your own machine first.
 
 
-**To test the app for yourself, please configure the services locally from the CLI, following instructions in Docs/USER_GUIDE.md**
+**To test the app yourself, configure the services locally from the CLI, following instructions in the [User Guide](Docs/USER_GUIDE.md)**
 
 
 Future iterations of this application will use Terraform to automate spinning up the architecture and services.
