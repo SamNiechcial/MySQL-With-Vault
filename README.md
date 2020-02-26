@@ -14,10 +14,10 @@ The current aim is to configure and run all services locally as a learning exerc
 In the 12 hours I have devoted to the project so far, I have configured and run a minimally configured service:
 
 
-* [MySQL 5.7]("https://formulae.brew.sh/formula/mysql@5.7") server, locally, with HomeBrew - providing the database for the credentials to service
-* [Consul]("https://www.consul.io/"), locally, in -dev mode - serving as data storage for Vault
-* [Vault]("https://www.vaultproject.io/"), locally, in production mode - serving dynamic secrets securely, integrated with MySQL 5.7 and Consul
-* [EnvConsul]("https://github.com/hashicorp/envconsul/"), locally - to serve MySQL credentials from Vault to my Python 2.7 scripts
+* [MySQL 5.7](https://formulae.brew.sh/formula/mysql@5.7) server, locally, with HomeBrew - providing the database for the credentials to service
+* [Consul](https://www.consul.io/), locally, in -dev mode - serving as data storage for Vault
+* [Vault](https://www.vaultproject.io/), locally, in production mode - serving dynamic secrets securely, integrated with MySQL 5.7 and Consul
+* [EnvConsul](https://github.com/hashicorp/envconsul/), locally - to serve MySQL credentials from Vault to my Python 2.7 scripts
 
 I have not yet started work on initiating and configuring this architecture with Terraform, nor do I have a live web service to hit for requests running in the cloud.
 As a result, the Python scripts provided will not work unless you configure these back-end services to run locally on your own machine first.
