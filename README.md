@@ -1,17 +1,14 @@
 # MySQL With Vault
-
 A learning project to explore dynamic secrets and encryption as a service, using the Hashicorp suite of technologies with MySQL.
 
 ## Requirements:
-
 The eventual aim is to enable minimally technical end users to automate the initiation and configuration of a MySQL database service, in the cloud, with dynamic secrets, to a best practices production standard of security and service delivery.
 
 
 The current aim is to configure and run all services locally as a learning exercise.
 
 ## Achievements To Date:
-
-In the 12 hours I have devoted to the project so far, I have configured and run a minimally configured service:
+In the 16 hours I have devoted to the project so far, I have configured and run a minimally configured service:
 
 
 * [MySQL 5.7](https://formulae.brew.sh/formula/mysql@5.7) server, locally, with HomeBrew - providing the database for the credentials to service
@@ -22,8 +19,10 @@ In the 12 hours I have devoted to the project so far, I have configured and run 
 
 I have included a video to demonstrate that the scripts I have written are working locally for me, *working.mov*.
 
-## App Testing:
 
+I have also included detailed step-by-step instructions for installing and configuring the services to run locally. These can be found at /Docs/USER_GUIDE.md
+
+## App Testing:
 I have not yet started work on initiating and configuring this architecture with Terraform, nor do I have a live web service to hit for requests running in the cloud.
 As a result, the Python scripts provided will not work unless you configure these back-end services to run locally on your own machine first.
 
@@ -35,7 +34,6 @@ Future iterations of this application will use Terraform to automate spinning up
 
 
 ## Next step:
-
 1. The scripts I have created so far are essentially scratches - they refactoring for security, separation of concerns etc.
 
 ## Further Steps:
@@ -57,7 +55,6 @@ Behavioural testing with Cucumber
 8. Create a version to work with modern services, MySQL 8 with Python 3
 
 9. Maintain project, monitoring for security vulnerabilities, dependency issues etc.
-
 
 ## Readme Details:
 README_VERSION_NUMBER: 0.1
