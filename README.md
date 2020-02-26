@@ -20,7 +20,7 @@ In the 16 hours I have devoted to the project so far, I have configured and run 
 I have included a video to demonstrate that the scripts I have written are working locally for me, *working.mov*.
 
 
-I have also included detailed step-by-step instructions for installing and configuring the services to run locally. These can be found at /Docs/USER_GUIDE.md
+I have also included detailed step-by-step instructions for installing and configuring the services to run locally at */Docs/USER_GUIDE.md*
 
 ## App Testing:
 I have not yet started work on initiating and configuring this architecture with Terraform, nor do I have a live web service to hit for requests running in the cloud.
@@ -33,10 +33,8 @@ As a result, the Python scripts provided will not work unless you configure thes
 Future iterations of this application will use Terraform to automate spinning up the architecture and services.
 
 
-## Next step:
+## Next steps:
 1. The scripts I have created so far are essentially scratches - they refactoring for security, separation of concerns etc.
-
-## Further Steps:
 
 2. Use Hashicorp documentation to learn how to use Terraform to spin up architecture; MySql 5.7 Server and Client, Consul and Vault - this time with Ubuntu on AWS or Docker.
 
