@@ -270,8 +270,6 @@ Where the * indicates your specific path to your Projects directory. This termin
 
 
 #### Initialise and Unseal the Vault Server:
-
-
 Initialise the vault:
 
 
@@ -301,7 +299,7 @@ vault login s.9jazDIV2i7yjKw5f4DdLnP8n
 
 Great Success! You have now initiated a Vault server in production mode, unsealed the server, and **authenticated** as the root user. Now it's time to configure the vault server to serve us some dynamic secrets for our MySQL database.  We are going to do this using the **database secrets engine** in Vault.
 
-## 7. Configure Vault to Serve Dynamic Secrets for MySQL
+## 7. Configure Vault to Serve Dynamic Secrets for MySQL:
 Start the pre-installed database Vault secrets service with:
 
 
@@ -388,7 +386,7 @@ The "token" Value from the output is the Vault token we will be needing for our 
 We will be using it to make calls to the Vault HTTP API.
 Save it in your secret note for now.
 
-## 8. Install EnvConsul
+## 8. Install EnvConsul:
 Contrary to what you may think, EnvConsul is not a feature of Consul, but is in fact an entirely separate binary file. It will have to be installed as per the two other hashicorp binaries above. Download and unzip with:
 
 ```shell
@@ -407,7 +405,7 @@ mv envconsul /usr/local/bin/
 
 Restart your terminal window.
 
-## 9. Configure EnvConsul to Serve MySQL Credentials from Vault to Python.
+## 9. Configure EnvConsul to Serve MySQL Credentials from Vault to Python:
 Set the EnvConsul policy using the policy provided in the Vault Config folder:
 
 
@@ -425,8 +423,18 @@ vault token create -policy=envconsul_policy
 
 Again, the token value is the information you need for the EnvConsul method in the app.py script. Save it for now in your secret note.
 
-## Useful Documentation:
+## 10. Configure App Script with Vault Policy Token Information:
+Simply take the two policy tokens from your secret list, paste them into the relevant lines in app.py, and run from the CLI with:
 
+```shell
+python app.py
+```
+
+Note you are served different credentials via the environment and via the Vault HTTP API, every time you run the script.
+
+This means you now have a bare-bones local Vault service, serving credentials live to a Python application, via both the Vault HTTP API and EnvConsul.
+
+## Useful Documentation:
 [Consul Local Deployment Guide](https://learn.hashicorp.com/consul/getting-started/agent)
 
 [Consul Configuration Documentation](https://www.consul.io/docs/agent/options.html)
