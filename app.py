@@ -7,13 +7,13 @@ def getFromAPI():
     # Hard-coding credentials is NOT advisable in production applications.
     # It is my intention to serve this from a config file in future versions!
 
-    mysql_vault_token = # Insert Token for Authenticating for legacy-mysql-role here!
+    mysql_policy_token = # Insert Token for Authenticating for legacy-mysql-role here!
 
     # Make API request to Vault and assign response to locally-scoped variable:
 
     resp = requests.get("http://localhost:8200" +
                         "/v1/database/creds/legacy-mysql-role",
-                        headers = {"X-Vault-Token": mysql_vault_token})
+                        headers = {"X-Vault-Token": mysql_policy_token})
 
     # Convert JSON response from API to a dictionary using JSON package:
 
@@ -53,14 +53,14 @@ def getFromEnv():
 
     # Generate shell subprocess populated with MySQL credentials from Vault via EnvConsul CLI Tool:
 
-    token = # Insert Token for Authenticating for envconsul role here!
+    envconsul_policy_token = # Insert Token for Authenticating for envconsul role here!
     address = 'http://127.0.0.1:8200'
     vault_cred_path = 'database/creds/legacy_mysql_role'
     cmd = "VAULT_TOKEN='{}' VAULT_ADDR='{}' envconsul -upcase -secret {} env"
 
     # Extract environment variables from shell subprocess and convert to dictionary:
 
-    output = subprocess.check_output(cmd.format(token, address, vault_cred_path), shell=True)
+    output = subprocess.check_output(cmd.format(envconsul_policy_token, address, vault_cred_path), shell=True)
     output_by_line = output.split('\n')
 
     env_vars = {}
