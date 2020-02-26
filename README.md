@@ -47,7 +47,7 @@ Learn Terraform, then use it to automate the configuration of the back-end servi
 
 
 
-##Requirements: Long Term: Develop a Project that's Actually Useful##
+## Requirements - Long Term: Develop a Project that's Actually Useful
 The eventual aim is to enable minimally technical end users to automate the initiation and configuration of a MySQL database service, in the cloud, with dynamic secrets, to a best practices production standard of security and service delivery. This may take some time.
 ## Further Steps: Refactoring and Testing - Unit, Integration and Battle
 3. The scripts I have created so far are essentially scratches - they refactoring for security, separation of concerns etc.
