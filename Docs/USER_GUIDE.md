@@ -1,5 +1,4 @@
 # MySQL With Vault - USER_GUIDE.md v0.1
-
 This user guide speaks to running the services and application locally on MacOS Catalina.
 
 
@@ -12,8 +11,9 @@ It is recommended that you use the **secret_note_template.txt** file included to
 Once you have everything configured, it is strongly recommended that you save this secret_note in a secure location, such as with a password manager like 1password, and **destroy** the original file.
 
 
-## Requirements:
 
+
+## Requirements:
 To run the project locally and demonstrate app functionality, you will need:
 
 
@@ -26,12 +26,12 @@ To run the project locally and demonstrate app functionality, you will need:
 7. Vault configured to provide Dynamic Secrets for MySQL Database via HTTP API
 8. EnvConsul installed and working on the CLI.
 9. EnvConsul configured to Serve Dynamic Secrets via Subprocess.
-10. App.py script configured with correct vault policy token information.
+10. App script configured with correct vault policy token information.
+
+
 
 
 ## 1. Clone Git Repository to Your Machine via CLI:
-
-
 To download from GitHub with the CLI, navigate to your projects directory and run:
 
 
@@ -39,10 +39,7 @@ To download from GitHub with the CLI, navigate to your projects directory and ru
 git checkout https://github.com/SamNiechcial/MySQL-With-Vault.git
 ```
 
-If your Git isn't working from the CLI, beware the stealth Xcode update - it gets me every time.
-
-
-Run this in your shell to popup the update the command line tools:
+If your Git isn't working from the CLI, beware the stealth Xcode update - it gets me every time. Run this in your shell to popup the update the command line tools:
 
 
 ```shell
@@ -50,8 +47,6 @@ xcode-select --install
 ```
 
 ## 2. Check Default Python 2.7 Installation:
-
-
 Check which version of Python you are running with:
 
 
@@ -60,28 +55,20 @@ which python
 ```
 
 
-If you get:
+If you aren't already running a different virtual environment, you get should get:
 
 
 ```Shell
 /usr/bin/python
 ```
 
-back, which you should do, assuming you aren't already running a different virtual environment, no further action should be required.
+If so, no further action should be required.
 
 
-## 3. Create Virtual Environment with Package Requirements Installed via PIP:
 
 
+## 3. Create Virtual Environment with VirtualEnv and PIP:
 Navigate to root directory of the newly-cloned project, and create a Python 2.7 virtual environment for the project with:
-
-
-```shell
-python -m virtualenv *NAME*
-```
-
-
-Where *NAME* denotes whatever you want to call the virtual environment, e.g.
 
 
 ```shell
@@ -108,13 +95,10 @@ pip install -r requirements.txt
 Your virtual environment should now be ready to run the project scripts.
 
 
-## 4. Install MYSQL and MYSQL client with Homebrew and Run MySQL Client Locally:
 
 
-#### Install or Update Homebrew:
-
-
-If you don't already have Homebrew, why not? Anyway, enter:
+## 4. Install MYSQL and MYSQL client with Homebrew and Run MySQL Server Locally:
+If you don't already have Homebrew, enter:
 
 
 ```shell
@@ -122,7 +106,7 @@ If you don't already have Homebrew, why not? Anyway, enter:
 ```
 
 
-If you do, beware the automatic updates, they always seem to break something. Anyway, enter:
+If you do, beware the automatic updates, they always seem to break something for me. Anyway, enter:
 
 ```shell
 brew -update
@@ -137,18 +121,10 @@ brew -doctor
 ```
 
 
+
+
 #### Install MySQL 5.7 and Client with Homebrew:
-
-
-Check the standard MySQL 5.7 distribution is available as a stable build..
-The latest version of MySQL is 8 - as a result we will need to append a tag to the default package key:
-
-
-```shell
-brew info mysql@5.7
-````
-
-As long as the output contains the word stable, install MySQL 5.7 with:
+Install MySQL 5.7 with:
 
 
 ```shell
@@ -164,25 +140,9 @@ brew install mysql-client@5.7
 ```
 
 
+
+
 #### Start MySQL Running Locally:
-
-
-Verify the installed MySQL instance:
-
-
-```shell
-mysql -V
-```
-
-
-Hopefully, the output looks like this:
-
-
-```shell
-Ver 14.14 Distrib 5.7.22, for osx10.13 (x86_64)
-```
-
-
 Force link version 5.7:
 
 
@@ -199,14 +159,6 @@ brew services start mysql@5.7
 ```
 
 
-Hopefully, the output looks like this:
-
-
-```shell
-Successfully started mysql (label: homebrew.mxcl.mysql)
-```
-
-
 Check if the MySQL service has been loaded:
 
 
@@ -218,23 +170,21 @@ brew services list
 To make your MySQL installation a little more secure, notably by setting root credentials immediately:
 
 
+**IMPORTANT: Make sure to select a strong password!**
+
+
+
 ```shell
 mysql_secure_installation
 ```
 
 
-**IMPORTANT: Make sure to select a strong password!**
-
-
 **IMPORTANT: Copy the secret_note_template from the project directory into a secure location, for example a secret note in 1Password. Add the MySQL Root Credentials to the secret note. Ensure this note is properly saved before continuing.**
 
 
+
+
 ## 5. Install Consul and Run Consul Agent Locally (in Development Mode):
-
-
-#### Install Consul:
-
-
 Download latest version of Consul:
 
 
@@ -270,17 +220,17 @@ consul --version
 If not available, restart your terminal window and try again.
 
 
+
+
 #### Start Consul running locally in Development Mode:
-
-
-**IMPORTANT: Never run a Consul agent in Development mode in production. This guide is strictly for a proof-of concept and testing implementation.**
-
-
 Start your local consul agent and node by running:
 
 ```shell
 consul agent -dev -node NAME
 ```
+
+
+**IMPORTANT: Never run a Consul agent in Development mode in production. This guide is strictly for a proof-of concept and testing implementation.**
 
 
 Where NAME indicates the name you want for your agent, e.g.
@@ -306,9 +256,9 @@ consul leave
 ```
 
 
+
+
 ## 6. Install Vault and Run Local Server in Production Mode:
-
-
 Download the latest version of Vault and Unzip:
 
 ```shell
@@ -341,6 +291,8 @@ vault server -config=*/Config/Vault/vault_server_config.hcl
 
 
 Where the * indicates your specific path to your Projects directory. This terminal window is now running your Vault server. Open a new one.
+
+
 
 
 #### Initialise and Unseal the Vault Server:
@@ -376,9 +328,9 @@ vault login s.9jazDIV2i7yjKw5f4DdLnP8n
 Great Success! You have now initiated a Vault server in production mode, unsealed the server, and **authenticated** as the root user. Now it's time to configure the vault server to serve us some dynamic secrets for our MySQL database.  We are going to do this using the **database secrets engine** in Vault.
 
 
+
+
 ## 7. Configure Vault to Serve Dynamic Secrets for MySQL
-
-
 Start the pre-installed database Vault secrets service with:
 
 
@@ -461,14 +413,14 @@ vault token create -policy=mysql_policy
 ```
 
 
-The "token" Value is the Vault token we will be needing for our Python Script.
+The "token" Value from the output is the Vault token we will be needing for our Python Script.
 We will be using it to make calls to the Vault HTTP API.
 Save it in your secret note for now.
 
 
+
+
 ## 8. Install EnvConsul
-
-
 Contrary to what you may think, EnvConsul is not a feature of Consul, but is in fact an entirely separate binary file. It will have to be installed as per the two other hashicorp binaries above. Download and unzip with:
 
 ```shell
@@ -488,9 +440,9 @@ mv envconsul /usr/local/bin/
 Restart your terminal window.
 
 
+
+
 ## 9. Configure EnvConsul to Serve MySQL Credentials from Vault to Python.
-
-
 Set the EnvConsul policy using the policy provided in the Vault Config folder:
 
 
@@ -507,6 +459,8 @@ vault token create -policy=envconsul_policy
 
 
 Again, the token value is the information you need for the EnvConsul method in the app.py script. Save it for now in your secret note.
+
+
 
 
 ## Useful Documentation:
