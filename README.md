@@ -38,7 +38,11 @@ In the 12 hours I have devoted to it so far, I have configured and run a proof-o
 
 I have not yet started work on initiating and configuring this architecture with Terraform, nor do I have a live web service to hit for requests running in the cloud.
 
-As a result, the Python scripts provided will *not* work unless you configure thes back-end services to run locally on your own machine *first*.
+**As a result, the Python scripts provided will not work unless you configure these back-end services to run locally on your own machine first.**
+
+Please configure the services manually using USER_GUIDE.md, in the Docs folder.
+
+Future Iterations of this application will use Terraform to automate spinning up the architecture and services.
 
 ## Demonstrating Working Initial Proof of Concept:
 
