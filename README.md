@@ -30,7 +30,7 @@ In the video, you will see Vault serving Dynamic Secrets to my app.py script, an
 
 
 I have also included detailed step-by-step instructions for installing and configuring the services to run locally at */Docs/USER_GUIDE.md*
-## Configuration for Local MVP App Testing
+## Configuration for Local App Testing
 I have not yet started work on initiating and configuring this architecture with Terraform, nor do I have a live web service to hit for requests running in the cloud.
 As a result, the Python scripts provided will not currently work unless you configure these back-end services to run locally on your own machine first.
 
@@ -39,7 +39,7 @@ As a result, the Python scripts provided will not currently work unless you conf
 
 
 Future iterations of this application will use Terraform to automate spinning up the architecture and services.
-## Requirements: Short Term: Automate Service Architecture
+## Requirements - Short Term: Automate Service Architecture
 Learn Terraform, then use it to automate the configuration of the back-end services for other users. This will enable other users to easily run and test a "live" application locally, without need to resort to the User Guide.
 ## Next Steps: Terraform
 1. Use Hashicorp documentation to learn how to use Terraform to spin up architecture; MySql 5.7 Server and Client, Consul and Vault - this time with Ubuntu on AWS or Docker.
@@ -59,7 +59,7 @@ Behavioural testing with Cucumber
 8. Create a version to work with modern services, MySQL 8 with Python 3
 9. Maintain project, monitoring for security vulnerabilities, dependency issues etc.
 
-## Readme Details:
+## Readme Details
 README_VERSION_NUMBER: 0.1
 
 [My Git Profile]: <"https://github.com/SamNiechcial">
