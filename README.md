@@ -2,41 +2,43 @@
 
 A learning project to explore dynamic secrets and encryption as a service, using the Hashicorp suite of technologies with MySQL.
 
-## Project Goals:
+## Requirements:
 
 The eventual aim is to enable minimally technical end users to automate the initiation and configuration of a MySQL database service, in the cloud, with dynamic secrets, to a best practices production standard of security and service delivery.
 
-## Current Project State:
 
-The project is in a very early state and is currently unlikely to be of use to anyone else.
+The current aim is to configure and run all services locally as proof of concept.
+
+## Achievements To Date:
+
+In the 12 hours I have devoted to the project so far, I have configured and run a minimal proof-of-concept service:
 
 
-In the 12 hours I have devoted to it so far, I have configured and run a proof-of-concept service locally;
-
- - MySQL 5.7 server and client (locally, with HomeBrew) - providing the database for the credentials to service
- - Consul (locally, in -dev mode) - serving as encrypted data storage for Vault
- - Vault (locally, in production mode) - serving dynamic secrets securely, integrated with MySQL 5.7 and Consul
- - EnvConsul locally - to serve MySQL credentials from Vault to my Python 2.7 scripts
+- [MySQL 5.7]("https://formulae.brew.sh/formula/mysql@5.7") server, locally, with HomeBrew - providing the database for the credentials to service
+- [Consul]("https://www.consul.io/"), locally, in -dev mode - serving as data storage for Vault
+- [Vault]("https://www.vaultproject.io/"), locally, in production mode - serving dynamic secrets securely, integrated with MySQL 5.7 and Consul
+- [EnvConsul]("https://github.com/hashicorp/envconsul/"), locally - to serve MySQL credentials from Vault to my Python 2.7 scripts
 
 I have not yet started work on initiating and configuring this architecture with Terraform, nor do I have a live web service to hit for requests running in the cloud.
+As a result, the Python scripts provided will not work unless you configure these back-end services to run locally on your own machine first.
 
-**As a result, the Python scripts provided will not work unless you configure these back-end services to run locally on your own machine first.** Please configure the services manually using USER_GUIDE.md, in the Docs folder.
 
-Future iterations of this application will use Terraform to automate spinning up the architecture and services.
+**To test the app for yourself, please configure the services manually following instructions in Docs/USER_GUIDE.md**
 
-## Demonstrating Working Initial Proof of Concept:
 
 For now, I have included a video to demonstrate that the scripts I have written are working locally for me, *working.mov*.
 
-It can be found in the root directory of the project.
 
-## Next steps:
+Future iterations of this application will use Terraform to automate spinning up the architecture and services.
 
-1. The scripts I have created so far are essentially scratches - they refactoring for security, separation of concerns, etc.
+
+## Next step:
+
+1. The scripts I have created so far are essentially scratches - they refactoring for security, separation of concerns etc.
 
 ## Further Steps:
 
-2. Use Hashicorp documentation to learn how to use Terraform to spin up architecture; MySql 5.7 Server and Client, Consul and Vault - this time on Ubuntu, or something else I can eventually configure to run in production on AWS.
+2. Use Hashicorp documentation to learn how to use Terraform to spin up architecture; MySql 5.7 Server and Client, Consul and Vault - this time with Ubuntu on AWS or Docker.
 
 3. Write project Terraform configuration to spin up architecture; MySql 5.7 Server and client, Consul and Vault - Again, on Ubuntu.
 
@@ -45,10 +47,10 @@ It can be found in the root directory of the project.
 5. Refactor new Python 2.7 scripts for security, separation of concerns, etc.
 
 6. Write Test suite:
-Unit testing with PyTest
-Behavioural testing with Cucumber (Potentially - for Product Owners etc)
+Unit testing with PyTest,
+Behavioural testing with Cucumber
 
-7. Real world testing: Start anew, alter configuration files, and attempt to spin up the entire service in production mode - If this works a few times, I would then consider version 1.0 and package distribution, with public key cryptography etc.
+7. Battle testing: Start anew, alter configuration files, and attempt to spin up all service clusters in production mode.
 
 8. Create a version to work with modern services, MySQL 8 with Python 3
 
@@ -75,16 +77,7 @@ And lastly, this project itself is open source and can be found at the public gi
 * [Project Git Repo](https://github.com/SamNiechcial/MySQL-With-Vault)
 
 ## Readme Details:
-
-This project was written by:
-* [My Git Profile](https://github.com/SamNiechcial) - Find me on Github
-
-Readme written with Atom and checked with Dillinger:
-
-* [Atom](https://atom.io/) - A hackable text editor for the 21st Century
-* [Dillinger](https://dillinger.io/) - Online Markdown Editor
-
-README VERSION NUMBER 0.1
+README VERSION NUMBER: 0.1
 
 [My Git Profile]: <"https://github.com/SamNiechcial">
 [Project Git Repo]: <"https://github.com/SamNiechcial/MySQL-With-Vault">
