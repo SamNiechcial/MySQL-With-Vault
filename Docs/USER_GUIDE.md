@@ -23,10 +23,9 @@ To run the project locally and demonstrate app functionality, you will need:
 4. MySQL 5.7 installed, with client running locally.
 5. Consul installed, with agent running in -dev mode.
 6. Vault installed, with agent running locally in production mode.
-7. Vault configured to provide Dynamic Secrets for MySQL Database.
-8. Vault configured to serve Dynamic Secrets via HTTP API
-9. EnvConsul installed
-10. Vault & Envconsul configured to Serve Dynamic Secrets via Subprocess.
+7. Vault configured to provide Dynamic Secrets for MySQL Database via HTTP API
+8. EnvConsul installed
+9. Vault & Envconsul configured to Serve Dynamic Secrets via Subprocess.
 
 
 ## 1. Clone Git Repository to Your Machine via CLI:
@@ -468,7 +467,7 @@ vault write database/config/legacy_mysql \
 Wherein the supplied connection url is the default for MySQL running locally, the username and password are replaced with the MySQL root information from your secret note, and the allowed_roles includes only the name of the role we are about to write next.
 
 
-**NOTE: As we will be passing MySQL credentials to shell environment variables later on with EnvConsul, and the names of these variables will be determined by the role name, it is inadvisable to include any characters in the role name which are not allowable in shell environment variable names.***
+**NOTE: As we will be passing MySQL credentials to shell environment variables later on with EnvConsul, and the names of these variables will be determined by the role name, it is inadvisable to include any characters in the role name which are not allowable in shell environment variable names.**
 
 
 Next, we need to write a Vault role with permissions to access the MySQL database and generate new users dynamically:
@@ -483,10 +482,15 @@ vault write database/roles/legacy_mysql_role \
 ```
 
 
-We should now be able to generate new users, with working username and password, on the command line with Vault, using `vault read database/creds/legacy_mysql_role`
+We should now be able to generate new users, with working username and password, on the command line with Vault, using
 
 
-**NOTE: The Credentials are different every time you run this command. A new user is being generated in the MySQL database every time.***
+```shell
+vault read database/creds/legacy_mysql_role
+```
+
+
+**NOTE: The Credentials are different every time you run this command. A new user is being generated in the MySQL database every time.**
 
 
 For security reasons, we do not want our legacy mysql dynamic secrets application to have root access to Vault. Now, we need to control the **authorization** the token we generate for our application to use has, with Vault Policies.
@@ -502,7 +506,7 @@ vault policy write mysql_policy */Config/Vault/mysql_policy.hcl
 
 **NOTE: Vault is inherently secure. The config file need only contain minimum necessary permissions for the role. All other abilities will be disabled by default.**
 
-And create a Vault token for the mysql_role using the mysql_policy:
+Create a Vault token for the mysql_role using the mysql_policy:
 
 
 ```shell
@@ -518,7 +522,41 @@ Save it in your secret note for now.
 ## Install EnvConsul
 
 
-Contrary to what you may think, EnvConsul is not a feature of Consul, but is in fact an entirely separate binary file.
+Contrary to what you may think, EnvConsul is not a feature of Consul, but is in fact an entirely separate binary file. It will have to be installed as per the two other hashicorp binaries above. Download and unzip with:
+
+```shell
+curl --remote-name https://releases.hashicorp.com/envconsul/0.9.2/envconsul_0.9.2_SHA256SUMS
+unzip envconsul_0.9.2_darwin_amd64.zip
+```
+
+
+Put EnvConsul on path using:
+
+
+```shell
+mv envconsul /usr/local/bin/
+```
+
+
+Restart your terminal window.
+
+
+Set the EnvConsul policy using the policy provided in the Vault Config folder:
+
+
+```shell
+vault policy write envconsul_policy envconsul_policy.hcl
+```
+
+Create the token for the envconsul_policy:
+
+
+```shell
+vault policy write envconsul_policy envconsul_policy.hcl
+```
+
+
+Again, the token value is the information you need for the EnvConsul method in the app.py script. Save it for now in your secret note.
 
 
 ## Useful Documentation:
