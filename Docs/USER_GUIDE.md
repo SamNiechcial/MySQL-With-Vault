@@ -10,9 +10,6 @@ It is recommended that you use the **secret_note_template.txt** file included to
 
 Once you have everything configured, it is strongly recommended that you save this secret_note in a secure location, such as with a password manager like 1password, and **destroy** the original file.
 
-
-
-
 ## Requirements:
 To run the project locally and demonstrate app functionality, you will need:
 
@@ -28,9 +25,6 @@ To run the project locally and demonstrate app functionality, you will need:
 9. EnvConsul configured to Serve Dynamic Secrets via Subprocess.
 10. App script configured with correct vault policy token information.
 
-
-
-
 ## 1. Clone Git Repository to Your Machine via CLI:
 To download from GitHub with the CLI, navigate to your projects directory and run:
 
@@ -45,7 +39,6 @@ If your Git isn't working from the CLI, beware the stealth Xcode update - it get
 ```shell
 xcode-select --install
 ```
-
 ## 2. Check Default Python 2.7 Installation:
 Check which version of Python you are running with:
 
@@ -64,10 +57,8 @@ If you aren't already running a different virtual environment, you get should ge
 
 If so, no further action should be required.
 
-
-
-
 ## 3. Create Virtual Environment with VirtualEnv and PIP:
+
 Navigate to root directory of the newly-cloned project, and create a Python 2.7 virtual environment for the project with:
 
 
@@ -94,9 +85,6 @@ pip install -r requirements.txt
 
 Your virtual environment should now be ready to run the project scripts.
 
-
-
-
 ## 4. Install MYSQL and MYSQL client with Homebrew and Run MySQL Server Locally:
 If you don't already have Homebrew, enter:
 
@@ -121,8 +109,6 @@ brew -doctor
 ```
 
 
-
-
 #### Install MySQL 5.7 and Client with Homebrew:
 Install MySQL 5.7 with:
 
@@ -138,8 +124,6 @@ and client with:
 ```shell
 brew install mysql-client@5.7
 ```
-
-
 
 
 #### Start MySQL Running Locally:
@@ -181,9 +165,6 @@ mysql_secure_installation
 
 **IMPORTANT: Copy the secret_note_template from the project directory into a secure location, for example a secret note in 1Password. Add the MySQL Root Credentials to the secret note. Ensure this note is properly saved before continuing.**
 
-
-
-
 ## 5. Install Consul and Run Consul Agent Locally (in Development Mode):
 Download latest version of Consul:
 
@@ -220,8 +201,6 @@ consul --version
 If not available, restart your terminal window and try again.
 
 
-
-
 #### Start Consul running locally in Development Mode:
 Start your local consul agent and node by running:
 
@@ -254,9 +233,6 @@ This terminal window is now running your local consul server. Open another.
 ```shell
 consul leave
 ```
-
-
-
 
 ## 6. Install Vault and Run Local Server in Production Mode:
 Download the latest version of Vault and Unzip:
@@ -293,8 +269,6 @@ vault server -config=*/Config/Vault/vault_server_config.hcl
 Where the * indicates your specific path to your Projects directory. This terminal window is now running your Vault server. Open a new one.
 
 
-
-
 #### Initialise and Unseal the Vault Server:
 
 
@@ -326,9 +300,6 @@ vault login s.9jazDIV2i7yjKw5f4DdLnP8n
 
 
 Great Success! You have now initiated a Vault server in production mode, unsealed the server, and **authenticated** as the root user. Now it's time to configure the vault server to serve us some dynamic secrets for our MySQL database.  We are going to do this using the **database secrets engine** in Vault.
-
-
-
 
 ## 7. Configure Vault to Serve Dynamic Secrets for MySQL
 Start the pre-installed database Vault secrets service with:
@@ -417,9 +388,6 @@ The "token" Value from the output is the Vault token we will be needing for our 
 We will be using it to make calls to the Vault HTTP API.
 Save it in your secret note for now.
 
-
-
-
 ## 8. Install EnvConsul
 Contrary to what you may think, EnvConsul is not a feature of Consul, but is in fact an entirely separate binary file. It will have to be installed as per the two other hashicorp binaries above. Download and unzip with:
 
@@ -439,9 +407,6 @@ mv envconsul /usr/local/bin/
 
 Restart your terminal window.
 
-
-
-
 ## 9. Configure EnvConsul to Serve MySQL Credentials from Vault to Python.
 Set the EnvConsul policy using the policy provided in the Vault Config folder:
 
@@ -459,9 +424,6 @@ vault token create -policy=envconsul_policy
 
 
 Again, the token value is the information you need for the EnvConsul method in the app.py script. Save it for now in your secret note.
-
-
-
 
 ## Useful Documentation:
 
