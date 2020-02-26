@@ -25,11 +25,11 @@ In the 16 hours I have devoted to the project so far, I have configured, run and
 * [EnvConsul](https://github.com/hashicorp/envconsul/), locally - Serving MySQL credentials from Vault to my Python 2.7 scripts.
 
 
-I have included a video to demonstrate that the MVP is functional locally for me, *working.mov*.
+I have included a video to demonstrate that the MVP is functional locally for me, [working.mov](working.mov).
 In the video, you will see Vault serving Dynamic Secrets to my app.py script, and the corresponding users appearing in the SQL database.
 
 
-I have also included detailed step-by-step instructions for installing and configuring the services to run locally at */Docs/USER_GUIDE.md*
+I have also written a detailed [User Guide](/Docs/USER_GUIDE.md), with instructions for installing and configuring the services to run locally.
 ## Configuration for Local App Testing
 I have not yet started work on initiating and configuring this architecture with Terraform, nor do I have a live web service to hit for requests running in the cloud.
 As a result, the Python scripts provided will not currently work unless you configure these back-end services to run locally on your own machine first.
