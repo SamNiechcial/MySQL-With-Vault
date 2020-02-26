@@ -58,28 +58,9 @@ Behavioural testing with Cucumber
 
 9. Maintain project, monitoring for security vulnerabilities, dependency issues etc.
 
-## Tech:
-
-This project currently uses open source projects from Hashicorp:
-
-* [Consul](https://www.consul.io/) for Data Storage; Provide encrypted backend data storage for Vault.
-* [EnvConsul](https://github.com/hashicorp/envconsul/) for Environment Variable Injection; Export MySQL secrets from Vault to shell subprocesses
-* [Vault](https://www.vaultproject.io/) for Dynamic Secrets; Generate and configure MySQL secrets, with integrated restricted permissions and automatic expiry.
-
-It will eventually also use Terraform:
-* [Terraform](https://www.terraform.io/) for IaaS; Spin up architecture and configure services.
-
-This project also uses a number of other cool open source software projects:
-
-* [HomeBrew](https://brew.sh/) for MacOS package management; Install and run local MySQL service.
-* [Python](https://www.python.org/) for Scripting; Run requests against services and generate user output.
-* [Requests](https://pypi.org/project/requests/) for human-compliant Read/Write syntax for HTTP API requests in Python2.7; Process requests for credentials to and from the Vault API
-
-And lastly, this project itself is open source and can be found at the public git repository:
-* [Project Git Repo](https://github.com/SamNiechcial/MySQL-With-Vault)
 
 ## Readme Details:
-README VERSION NUMBER: 0.1
+README_VERSION_NUMBER: 0.1
 
 [My Git Profile]: <"https://github.com/SamNiechcial">
 [Project Git Repo]: <"https://github.com/SamNiechcial/MySQL-With-Vault">
