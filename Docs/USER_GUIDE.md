@@ -108,7 +108,7 @@ pip install -r requirements.txt
 Your virtual environment should now be ready to run the project scripts.
 
 
-## 4. Install MYSQL and MYSQL client with Homebrew, Run Client Locally:
+## 4. Install MYSQL and MYSQL client with Homebrew and Run MySQL Client Locally:
 
 
 #### Install or Update Homebrew:
@@ -229,7 +229,7 @@ mysql_secure_installation
 **IMPORTANT: Copy the secret_note_template from the project directory into a secure location, for example a secret note in 1Password. Add the MySQL Root Credentials to the secret note. Ensure this note is properly saved before continuing.**
 
 
-## 5. Install Consul, Run Consul Agent Locally (in Development Mode):
+## 5. Install Consul and Run Consul Agent Locally (in Development Mode):
 
 
 #### Install Consul:
@@ -279,11 +279,11 @@ If not available, restart your terminal window and try again.
 Start your local consul agent and node by running:
 
 ```shell
-consul agent -dev -node *NAME*
+consul agent -dev -node NAME
 ```
 
 
-Where *NAME* indicates the name you want for your agent, e.g.
+Where NAME indicates the name you want for your agent, e.g.
 
 
 ```shell
@@ -295,47 +295,7 @@ consul agent -dev -node 'legacy_sql_node'
 
 
 If everything is working, Consul should stream you quite a bit of log data to STDOUT.
-
-
-**IMPORTANT: Add the Node ID, Node Name and Client Address to your secret note. You will need them all later.**
-
-
-#### Consul - Basic Service Discovery:
-
-
-There are various ways to obtain details about the running Consul service.
-
-
-Nodes running on the local Consul Agent can be inspected with:
-
-
-```shell
-consul members -detailed
-```
-
-This runs against the client, which is getting data via the Gossip Protocl.
-
-
-For a more strongly consistent view, query the HTTP API, which returns JSON:
-
-
-```shell
-curl localhost:8500/v1/catalog/nodes
-```
-
-
-Lastly, there is also a DNS interface, by which to discover nodes via the consul server. This runs on port 8600 by default.
-
-
-```shell
-dig @127.0.0.1 -p 8600 sql_node.node.consul
-```
-
-
-This will all become much more important when we are configuring the production application. For now, it just may be handy to know if you need it.
-
-
-#### Consul - Correct Shutdown:
+This terminal window is now running your local consul server. Open another.
 
 
 **IMPORTANT: Forcibly killing the Consul agent process is not a good idea. Nodes should be stopped, when finished, using:**
@@ -346,22 +306,8 @@ consul leave
 ```
 
 
-#### Further Reading for Consul Configuration:
+## 6. Install Vault and Run Local Server in Production Mode:
 
-
-[Consul Local Deployment Guide](https://learn.hashicorp.com/consul/getting-started/agent)
-
-
-[Consul Configuration Documentation](https://www.consul.io/docs/agent/options.html)
-
-
-[Consul Production Deployment Guide](https://learn.hashicorp.com/consul/datacenter-deploy/deployment-guide)
-
-
-## 6. Install Vault, Run Locally in Production Mode:
-
-
-#### Install Vault:
 
 Download the latest version of Vault and Unzip:
 
@@ -549,14 +495,14 @@ Set the EnvConsul policy using the policy provided in the Vault Config folder:
 
 
 ```shell
-vault policy write envconsul_policy envconsul_policy.hcl
+vault policy write envconsul_policy /Config/Vault/envconsul_policy.hcl
 ```
 
 Create the token for the envconsul_policy:
 
 
 ```shell
-vault policy write envconsul_policy envconsul_policy.hcl
+vault token create -policy=envconsul_policy
 ```
 
 
@@ -570,5 +516,3 @@ Again, the token value is the information you need for the EnvConsul method in t
 [Consul Configuration Documentation](https://www.consul.io/docs/agent/options.html)
 
 [Consul Production Deployment Guide](https://learn.hashicorp.com/consul/datacenter-deploy/deployment-guide)
-
-**TO BE CONTINUED**
