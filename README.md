@@ -1,5 +1,5 @@
 # MySQL With Vault
-A learning project to explore Dynamic Secrets and Encryption as a Service, using the Hashicorp suite of technologies and MySQL.
+A learning project to explore Dynamic Secrets and Encryption as a Service using the Hashicorp suite of technologies and MySQL.
 
 ## Requirements: MVP
 The initial aim was to explore a couple of options for injecting Dynamic Secrets, in order to learn which I prefer, while also demonstrating a minimum viable product.
@@ -40,9 +40,9 @@ As a result, the Python scripts provided will not currently work unless you conf
 
 Future iterations of this application will use Terraform to automate spinning up the architecture and services.
 ## Requirements - Short Term: Automate Service Architecture
-Learn Terraform, then use it to automate the configuration of the back-end services for other users. This will enable other users to easily run and test a "live" application locally, without need to resort to the User Guide.
+Learn [Terraform](https://www.terraform.io/), then use it to automate the configuration of the back-end services for other users. This will enable other users to easily run and test a "live" application locally, without need to resort to the User Guide.
 ## Next Steps: Terraform
-1. Use Hashicorp documentation to learn how to use Terraform to spin up architecture; MySql 5.7 Server and Client, Consul and Vault - this time with Ubuntu on AWS or Docker.
+1. Use Hashicorp documentation to learn how to use Terraform to spin up architecture; MySql 5.7 Server and Client, Consul and Vault - this time with Ubuntu on [AWS](https://aws.amazon.com/) or [Docker](https://www.docker.com/).
 2. Write project Terraform configuration to spin up architecture; MySql 5.7 Server and client, Consul and Vault - Again, on Ubuntu.
 
 
@@ -61,6 +61,8 @@ Behavioural testing with Cucumber
 
 ## Readme Details
 README_VERSION_NUMBER: 0.1
+
+
 README_DATE: 26/02/2020
 
 [My Git Profile]: <"https://github.com/SamNiechcial">
