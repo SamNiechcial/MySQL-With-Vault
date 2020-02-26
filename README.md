@@ -19,6 +19,9 @@ In the 12 hours I have devoted to the project so far, I have configured and run 
 * [Vault](https://www.vaultproject.io/), locally, in production mode - serving dynamic secrets securely, integrated with MySQL 5.7 and Consul
 * [EnvConsul](https://github.com/hashicorp/envconsul/), locally - to serve MySQL credentials from Vault to my Python 2.7 scripts
 
+
+I have included a video to demonstrate that the scripts I have written are working locally for me, *working.mov*.
+
 ## App Testing:
 
 I have not yet started work on initiating and configuring this architecture with Terraform, nor do I have a live web service to hit for requests running in the cloud.
@@ -26,9 +29,6 @@ As a result, the Python scripts provided will not work unless you configure thes
 
 
 **To test the app for yourself, please configure the services locally from the CLI, following instructions in Docs/USER_GUIDE.md**
-
-
-For now, I have included a video to demonstrate that the scripts I have written are working locally for me, *working.mov*.
 
 
 Future iterations of this application will use Terraform to automate spinning up the architecture and services.
