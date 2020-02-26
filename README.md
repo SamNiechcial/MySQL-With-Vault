@@ -6,26 +6,6 @@ A learning project to explore dynamic secrets and encryption as a service, using
 
 The eventual aim is to enable minimally technical end users to automate the initiation and configuration of a MySQL database service, in the cloud, with dynamic secrets, to a best practices production standard of security and service delivery.
 
-## Tech:
-
-This project currently uses open source projects from Hashicorp:
-
-* [Consul](https://www.consul.io/) for Service Networking; Provide encrypted backend data storage for Vault.
-* [EnvConsul](https://github.com/hashicorp/envconsul/) for Environment Management; Export MySQL secrets from Vault to shell subprocesses
-* [Vault](https://www.vaultproject.io/) for Dynamic Secrets; Generate and configure MySQL secrets, with integrated restricted permissions and automatic expiry.
-
-It will eventually also use Terraform:
-* [Terraform](https://www.terraform.io/) for IaaS; Spin up architecture and configure services.
-
-This project also uses a number of other cool open source software projects:
-
-* [HomeBrew](https://brew.sh/) for MacOS package management; Install and run local MySQL service.
-* [Python](https://www.python.org/) for Scripting; Run requests against services and generate user output.
-* [Requests](https://pypi.org/project/requests/) for human-compliant Read/Write syntax for HTTP API requests in Python2.7; Process requests for credentials to and from the Vault API
-
-And lastly, this project itself is open source and can be found at the public git repository:
-* [Project Git Repo](https://github.com/SamNiechcial/MySQL-With-Vault)
-
 ## Current Project State:
 
 The project is in a very early state and is currently unlikely to be of use to anyone else.
@@ -73,6 +53,26 @@ Behavioural testing with Cucumber (Potentially - for Product Owners etc)
 9. Create a version to work with modern services, MySQL 8 with Python 3
 
 10. Maintain project, monitoring for security vulnerabilities, dependency issues etc.
+
+## Tech:
+
+This project currently uses open source projects from Hashicorp:
+
+* [Consul](https://www.consul.io/) for Data Storage; Provide encrypted backend data storage for Vault.
+* [EnvConsul](https://github.com/hashicorp/envconsul/) for Environment Variable Injection; Export MySQL secrets from Vault to shell subprocesses
+* [Vault](https://www.vaultproject.io/) for Dynamic Secrets; Generate and configure MySQL secrets, with integrated restricted permissions and automatic expiry.
+
+It will eventually also use Terraform:
+* [Terraform](https://www.terraform.io/) for IaaS; Spin up architecture and configure services.
+
+This project also uses a number of other cool open source software projects:
+
+* [HomeBrew](https://brew.sh/) for MacOS package management; Install and run local MySQL service.
+* [Python](https://www.python.org/) for Scripting; Run requests against services and generate user output.
+* [Requests](https://pypi.org/project/requests/) for human-compliant Read/Write syntax for HTTP API requests in Python2.7; Process requests for credentials to and from the Vault API
+
+And lastly, this project itself is open source and can be found at the public git repository:
+* [Project Git Repo](https://github.com/SamNiechcial/MySQL-With-Vault)
 
 ## Readme Details:
 
