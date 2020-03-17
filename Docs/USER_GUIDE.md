@@ -269,6 +269,26 @@ vault server -config=*/Config/Vault/vault_server_config.hcl
 Where the * indicates your specific path to your Projects directory. This terminal window is now running your Vault server. Open a new one.
 
 
+NOTE: As TLS is set to disabled in our vault_server_config.hcl:
+
+
+```shell
+listener "tcp" {
+ address     = "127.0.0.1:8200"
+ tls_disable = 1
+}
+```
+
+
+You will need to overwrite the default Vault address on your machine, which uses https, by exporting that same address (but with a http prefix) to your local environment:
+
+
+```shell
+export VAULT_ADDR='http://127.0.0.1:8200'
+```
+ 
+
+Failure to do this will result in errors when attempting to use Vault from the CLI.
 #### Initialise and Unseal the Vault Server:
 Initialise the vault:
 
