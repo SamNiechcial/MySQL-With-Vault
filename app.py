@@ -12,7 +12,7 @@ def getFromAPI():
     # Make API request to Vault and assign response to locally-scoped variable:
 
     resp = requests.get("http://localhost:8200" +
-                        "/v1/database/creds/legacy-mysql-role",
+                        "/v1/database/creds/legacy_mysql_role",
                         headers = {"X-Vault-Token": mysql_policy_token})
 
     # Convert JSON response from API to a dictionary using JSON package:
